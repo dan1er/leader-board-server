@@ -1,0 +1,6 @@
+type Player {
+  id: ID! @id
+  firstName: String!
+  lastName: String!
+  score: Float!
+}

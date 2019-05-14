@@ -1,0 +1,38 @@
+#import PlayerOrderByInput from './generated/prisma.graphql'
+
+type Query {
+    players(query: String, first: Int, skip: Int, after: String, orderBy: PlayerOrderByInput): [Player!]!
+}
+
+type Mutation {
+    createPlayer(data: CreatePlayerInput!): Player!
+    updatePlayer(id:ID!, data: UpdatePlayerInput!): Player!
+    deletePlayer(id: ID!): Player!
+}
+
+input CreatePlayerInput {
+    firstName: String!
+    lastName: String!
+    score: Float!
+}
+
+input UpdatePlayerInput {
+    firstName: String
+    lastName: String
+    score: Float
+}
+
+type Player {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    score: Float!
+    updatedAt: String!
+    createdAt: String!
+}
+
+enum MutationType {
+    CREATED
+    UPDATED
+    DELETED
+}
